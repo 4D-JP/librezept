@@ -5,7 +5,7 @@
 
 create a new project named "compiler".
 
-in *On Startup*, read CLI user parameters.
+read CLI user parameters in *On Startup*.
 
 ```4d
 C_TEXT($userParamsJson)
