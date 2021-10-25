@@ -86,6 +86,6 @@ End if
 $status:=Compile project($project; $options)
 ```
 
-at this point we have a small application that can compile any project. next step is to print output to the system console, because we can to run this on a VM.
+at this point we have a small application that can compile any project. next step is to print output to the system console, because we can to run this on a VM. we can use [compilationError](https://github.com/mesopelagique/build-action/blob/main/Project/Sources/Classes/compilationError.4dm) class or create our own.
 
 ---
