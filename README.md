@@ -164,3 +164,19 @@ End if
 * create blank data file at *Default Data/default.4DD*
 
 * disable splash screen in database settings.
+
+
+---
+
+build the app
+
+the app receives a project as user parameter and compiles it. but it will fail. you can confirm in Activity Monitor that the app is translocated and does not have access to file system for the user outside the sandbox.
+
+double click
+
+<img width="740" alt="スクリーンショット 2021-10-25 22 05 01" src="https://user-images.githubusercontent.com/1725068/138700559-4ccdb92b-bd10-46e6-95db-ac6efe823ccb.png">
+
+notice the file path is translocated
+
+<img width="713" alt="スクリーンショット 2021-10-25 22 04 53" src="https://user-images.githubusercontent.com/1725068/138700576-0d40fc4c-1c77-4284-9aab-12003e36794f.png">
+
