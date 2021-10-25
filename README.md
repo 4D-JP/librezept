@@ -149,7 +149,11 @@ copy the stringified and escaped representation of user parameters
 SET TEXT TO PASTEBOARD(Replace string($userParamsJson; "\""; "\\\""; *))
 ```
 
-quit at the end of *On Startup*
+---
+
+prepare for headless session
+
+* quit at the end of *On Startup*
 
 ```4d
 If (Application type=4D Volume desktop)
@@ -157,6 +161,6 @@ If (Application type=4D Volume desktop)
 End if 
 ```
 
-create blank data file at *Default Data/default.4DD*
+* create blank data file at *Default Data/default.4DD*
 
-
+* disable splash screen in database settings.
