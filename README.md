@@ -147,6 +147,30 @@ $console.printErrors($status)
 
 in the above example, raw JSON is passed as *User param value*. this might not work in complex cases because 4D trims arguments as spaces and no escape sequences are available.
 
+as a workaround, you could base64 encode the JSON
+
+```4d
+$userParamsJson:=JSON Stringify($userParams)
+
+var $data : Blob
+var $userParam : Text
+
+CONVERT FROM TEXT($userParamsJson; "utf-8"; $data)
+BASE64 ENCODE($data; $userParam)
+
+SET DATABASE PARAMETER(User param value; $userParam)
+```
+
+and do the same on the receiving end
+
+```4d
+var $data : Blob
+var $userParamsJson : Text
+
+CONVERT FROM TEXT($userParam; "utf-8"; $data)
+BASE64 DECODE($data; $userParamsJson)
+```
+
 ---
 
 prepare for headless session
