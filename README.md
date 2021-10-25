@@ -91,4 +91,40 @@ $status:=Compile project($project; $options)
 
 at this point we have a small application that can compile any project. next step is to print output to the system console, because we can to run this on a VM. we can use [compilationError](https://github.com/mesopelagique/build-action/blob/main/Project/Sources/Classes/compilationError.4dm) class or create our own.
 
----
+for example,  you could design a class like this:
+
+```4d
+Class constructor($project : 4D.File)
+	
+	This.project:=$project
+	
+Function print($message : Text)
+	
+	LOG EVENT(Into system standard outputs; $message+"\n")
+	
+Function printErrors($status : Object)
+	
+	If ($status#Null)
+		If ($status.errors#Null)
+			If ($status.errors.length>0)
+				This.print("::group::Compilation errors")
+				var $error : Object
+				For each ($error; $status.errors)
+					This.printError($error)
+				End for each 
+				This.print("::endgroup::")
+			End if 
+		End if 
+	End if 
+	
+Function printError($error : Object)
+	
+	var $cmd : Text
+	
+	$cmd:=Choose(Bool($error.isError); "error"; "warning")
+	
+	var $relativePath : Text
+	$relativePath:=Replace string(File($error.code.file.platformPath; fk platform path).path; This.project.parent.path; ""; 1; *)
+	
+	This.print("::"+$cmd+" file="+String($relativePath)+",line="+String($error.lineInFile)+"::"+String($error.message))
+```
