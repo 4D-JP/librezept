@@ -52,3 +52,36 @@ If ($userParams#Null)
 	End if 
 End if 
 ```
+
+if OK, extend the code to accept `Compile project` options.
+
+```4d
+$project:=Folder(fk resources folder).folder("stub").folder("Project").file("stub.4DProject")
+
+$userParams:=New object
+
+$userParams.project:=$project.path
+$userParams.options:=New object
+$userParams.options.targets:=New collection("x86_64_generic"; "arm64_macOS_lib")
+$userParams.options.typeInference:="locals"
+$userParams.options.defaultTypeForNumeric:=Is real
+$userParams.options.defaultTypeForButtons:=Is longint
+$userParams.options.generateSymbols:=True
+$userParams.options.generateTypingMethods:="reset"
+$userParams.options.components:=New collection
+
+SET DATABASE PARAMETER(User param value; JSON Stringify($userParams))
+
+RESTART 4D
+```
+
+* On Startup (abbreviated)
+ 
+```4d
+If ($userParams.options#Null)
+	$options:=$userParams.options
+Else 
+	$options:=New object
+End if 
+$status:=Compile project($project; $options)
+```
