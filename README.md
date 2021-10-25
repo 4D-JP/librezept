@@ -143,11 +143,9 @@ $console:=cs.Console.new($project)
 $console.printErrors($status)
 ```
 
-copy the stringified and escaped representation of user parameters
+---
 
-```4d
-SET TEXT TO PASTEBOARD(Replace string($userParamsJson; "\""; "\\\""; *))
-```
+in the above example, raw JSON is passed as *User param value*. this might not work in complex cases because 4D trims arguments as spaces and no escape sequences are available.
 
 ---
 
