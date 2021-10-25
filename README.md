@@ -154,3 +154,7 @@ If (Application type=4D Volume desktop)
 	QUIT 4D
 End if 
 ```
+
+create blank data file at *Default Data/default.4DD*
+
+
