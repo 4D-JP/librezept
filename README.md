@@ -24,8 +24,11 @@ End if
 
 test passing user parameters
 
+**Note**: you should use full paths since the project can be outside the file system (/PROJECT/, /RESOURCES/)
+
 ```4d
-$project:=Folder(fk resources folder).folder("stub").folder("Project").file("stub.4DProject")
+//$project:=Folder(fk resources folder).folder("stub").folder("Project").file("stub.4DProject")
+$project:=File(Get 4D folder(Current resources folder)+"Project"+Folder separator+"stub.4DProject"; fk platform path)
 
 $userParams:=New object
 
