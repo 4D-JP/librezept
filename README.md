@@ -8,9 +8,6 @@ create a new project named "compiler".
 prepare to read user parameters in *On Startup*.
 
 ```4d
-C_TEXT($userParamsJson)
-C_REAL($params)
-
 $params:=Get database parameter(User param value; $userParamsJson)
 
 If ($userParamsJson#"")
@@ -19,7 +16,7 @@ If ($userParamsJson#"")
 	$userParams:=JSON Parse($userParamsJson; Is object)
 	
 	If ($userParams#Null)
-		
+		//TODO: process user params	
 	End if 
   
 End if 
