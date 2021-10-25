@@ -28,7 +28,7 @@ test passing user parameters
 
 ```4d
 //$project:=Folder(fk resources folder).folder("stub").folder("Project").file("stub.4DProject")
-$project:=File(Get 4D folder(Current resources folder)+"Project"+Folder separator+"stub.4DProject"; fk platform path)
+$project:=File(Get 4D folder(Current resources folder)+"stub"+Folder separator+"Project"+Folder separator+"stub.4DProject"; fk platform path)
 
 $userParams:=New object
 
