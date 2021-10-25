@@ -146,3 +146,9 @@ copy the stringified and escaped representation of user parameters
 ```4d
 SET TEXT TO PASTEBOARD(Replace string($userParamsJson; "\""; "\\\""; *))
 ```
+
+quit at the end of *On Startup*
+
+```4d
+QUIT 4D
+```
