@@ -140,3 +140,9 @@ $console:=cs.Console.new($project)
 
 $console.printErrors($status)
 ```
+
+copy the stringified and escaped representation of user parameters
+
+```4d
+SET TEXT TO PASTEBOARD(Replace string($userParamsJson; "\""; "\\\""; *))
+```
