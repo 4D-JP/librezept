@@ -1,0 +1,18 @@
+name: compile
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: compile project
+        run: |
+          userParams="{\"project\":\"~/Desktop/compiler/compiler/Resources/stub/Project/stub.4DProject\",\"options\":{\"targets\":[\"x86_64_generic\",\"arm64_macOS_lib\"],\"typeInference\":\"locals\",\"defaultTypeForNumeric\":1,\"defaultTypeForButtons\":9,\"generateSymbols\":true,\"generateTypingMethods\":\"reset\",\"components\":[]}}" 
+          curl -fsSL https://.../run.sh | bash -s ${{ secrets.SERVER_URL }} "$userParams"
