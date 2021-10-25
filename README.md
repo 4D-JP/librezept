@@ -24,3 +24,17 @@ If ($userParamsJson#"")
   
 End if 
 ```
+
+test passing user parameters
+
+```4d
+$project:=Folder(fk resources folder).folder("stub").folder("Project").file("stub.4DProject")
+
+$userParams:=New object
+
+$userParams.project:=$project.path
+
+SET DATABASE PARAMETER(User param value; JSON Stringify($userParams))
+
+RESTART 4D
+```
