@@ -128,3 +128,15 @@ Function printError($error : Object)
 	
 	This.print("::"+$cmd+" file="+String($relativePath)+",line="+String($error.lineInFile)+"::"+String($error.message))
 ```
+
+and use it like this:
+
+```4d
+$status:=Compile project($project; $options)
+
+var $console : cs.Console
+
+$console:=cs.Console.new($project)
+
+$console.printErrors($status)
+```
