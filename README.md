@@ -150,5 +150,7 @@ SET TEXT TO PASTEBOARD(Replace string($userParamsJson; "\""; "\\\""; *))
 quit at the end of *On Startup*
 
 ```4d
-QUIT 4D
+If (Application type=4D Volume desktop)
+	QUIT 4D
+End if 
 ```
