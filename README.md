@@ -35,3 +35,20 @@ SET DATABASE PARAMETER(User param value; JSON Stringify($userParams))
 
 RESTART 4D
 ```
+
+if OK, complete *On Startup* to compile specified project.
+
+```4d
+If ($userParams#Null)
+
+	If ($userParams.project#Null)
+
+		$project:=File($userParams.project)
+
+		If ($project.exists)
+			$status:=Compile project($project)
+		End if 
+
+	End if 
+End if 
+```
