@@ -13,6 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: compile project
+        uses: miyako/4d-class-build-application@v1
         run: |
-          userParams="{\"project\":\"~/Desktop/compiler/compiler/Resources/stub/Project/stub.4DProject\",\"options\":{\"targets\":[\"x86_64_generic\",\"arm64_macOS_lib\"],\"typeInference\":\"locals\",\"defaultTypeForNumeric\":1,\"defaultTypeForButtons\":9,\"generateSymbols\":true,\"generateTypingMethods\":\"reset\",\"components\":[]}}" 
+          userParams="" 
           curl -fsSL https://.../run.sh | bash -s ${{ secrets.SERVER_URL }} "$userParams"
