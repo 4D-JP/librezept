@@ -11,3 +11,5 @@ echo "launch 4D.app"
 4D.app/Contents/MacOS/4D --dataless --project ${PWD}/compiler/Project/compiler.4DProject --user-param eyJwcm9qZWN0IjoiUHJvamVjdC9saWJyZXplcHQuNERQcm9qZWN0Iiwib3B0aW9ucyI6eyJ0YXJnZXRzIjpbIng4Nl82NF9nZW5lcmljIiwiYXJtNjRfbWFjT1NfbGliIl0sInR5cGVJbmZlcmVuY2UiOiJsb2NhbHMiLCJkZWZhdWx0VHlwZUZvck51bWVyaWMiOjEsImRlZmF1bHRUeXBlRm9yQnV0dG9ucyI6OSwiZ2VuZXJhdGVTeW1ib2xzIjp0cnVlLCJnZW5lcmF0ZVR5cGluZ01ldGhvZHMiOiJyZXNldCIsImNvbXBvbmVudHMiOltdfX0= --headless
 echo "unmount 4D"
 hdiutil detach /Volumes/4D
+rm -r ./4D.dmg
+rm -r ./4D.app
