@@ -11,7 +11,9 @@ jobs:
   compile:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: compile project
         run: |
           ./main.sh ${{ secrets.URL_4D_19_272594_LTS }}
       - name: commit
