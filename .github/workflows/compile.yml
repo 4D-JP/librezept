@@ -11,7 +11,16 @@ jobs:
   compile:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v2
-      - shell: bash
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: compile project
         run: |
           ./main.sh ${{ secrets.URL_4D_19_272594_LTS }}
+      - name: commit
+        run: |
+            git config --global user.name '4D-JP'
+            git config --global user.email '4D-JP@users.noreply.github.com'
+            git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
+            git add -A
+            git commit -m "Automated Compilation"
+            git push
