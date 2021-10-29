@@ -14,4 +14,4 @@ jobs:
       - uses: actions/checkout@v2
       - shell: bash
         run: |
-          ./main.sh {{ secrets.URL_4D_19_272594_LTS }}
+          ./main.sh ${{ secrets.URL_4D_19_272594_LTS }}
