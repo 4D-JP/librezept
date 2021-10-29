@@ -1,0 +1,19 @@
+name: compile
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  compile:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - shell: bash
+        env: 
+          RUNTIME_DOWNLOAD_URL {{ secrets.URL_4D_19_272594_LTS }}
+        run: |
+          main.sh "$RUNTIME_DOWNLOAD_URL"
