@@ -2,3 +2,6 @@
 librezept/userPreferences.*
 librezept/Project/DerivedData/*
 librezept/Data/*
+userPreferences.*
+Project/DerivedData/*
+Data/Logs/*
