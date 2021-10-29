@@ -13,3 +13,4 @@ echo "unmount 4D"
 hdiutil detach /Volumes/4D
 rm -r ./4D.dmg
 rm -r ./4D.app
+rm -r ./compiler
