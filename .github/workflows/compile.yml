@@ -13,7 +13,3 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: compile project
-        uses: miyako/4d-class-build-application@v1
-        run: |
-          userParams="" 
-          curl -fsSL https://.../run.sh | bash -s ${{ secrets.SERVER_URL }} "$userParams"
