@@ -1,8 +1,6 @@
 name: compile
 
 on:
-  # https://docs.github.com/ja/actions/learn-github-actions/events-that-trigger-workflows
-  # push on main branch, Project folder
   push:
     branches: [ main ]
     paths:
